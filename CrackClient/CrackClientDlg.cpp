@@ -215,14 +215,14 @@ void ProtectCodeSection()
     PIMAGE_DOS_HEADER pDOSHeader = (PIMAGE_DOS_HEADER)hModule;
     PIMAGE_NT_HEADERS pNTHeaders = (PIMAGE_NT_HEADERS)((BYTE*)hModule + pDOSHeader->e_lfanew);
 
-    // The code section is usually named ".text". You can iterate through the section headers to find it.
+    // Iterate through the section headers to find all executable sections
     PIMAGE_SECTION_HEADER pSection = IMAGE_FIRST_SECTION(pNTHeaders);
     for (int i = 0; i < pNTHeaders->FileHeader.NumberOfSections; ++i, ++pSection)
     {
-        // Compare the name of the section with ".text"
-        if (memcmp(pSection->Name, ".text", 5) == 0)
+        // Check if the section has executable attributes
+        if (pSection->Characteristics & IMAGE_SCN_MEM_EXECUTE)
         {
-            // Mark the .text section as PAGE_EXECUTE_READ (no write access)
+            // Mark the executable section as PAGE_EXECUTE_READ (no write access)
             DWORD oldProtect;
             if (VirtualProtect((LPVOID)((BYTE*)hModule + pSection->VirtualAddress),
                 pSection->Misc.VirtualSize,
@@ -230,18 +230,17 @@ void ProtectCodeSection()
                 &oldProtect))
             {
                 // Successfully protected the code section
-                OutputDebugString(L"Code section is now read-only.\n");
+                OutputDebugString(L"Executable section is now read-only.\n");
             }
             else
             {
                 // Failed to protect the code section
-                OutputDebugString(L"Failed to protect code section.\n");
+                OutputDebugString(L"Failed to protect executable section.\n");
             }
-
-            break;  // Exit loop after finding and processing the .text section
         }
     }
 }
+
 
 BOOL CCrackClientDlg::OnInitDialog()
 {

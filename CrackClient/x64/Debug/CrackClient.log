@@ -1,14 +1,14 @@
 ﻿  CrackClientDlg.cpp
-D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(425,99): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(424,99): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file '/CrackClientDlg.cpp')
   
-D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(588,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(587,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
   (compiling source file '/CrackClientDlg.cpp')
   
-D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(667,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(666,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
   (compiling source file '/CrackClientDlg.cpp')
   
-D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(784,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+D:\CrackTask\CrackClient\CrackClient\CrackClientDlg.cpp(783,107): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
   (compiling source file '/CrackClientDlg.cpp')
   
   CrackClient.vcxproj -> D:\CrackTask\CrackClient\x64\Debug\CrackClient.exe
